@@ -67,4 +67,15 @@ a {
   .head .para {
     color: #fff; }
 
+.container {
+  width: 100%;
+  margin: 0 10px; }
+
+.container-fluid {
+  width: 100%; }
+
+.row {
+  display: flex;
+  flex-wrap: wrap; }
+
 /*# sourceMappingURL=css.map */
