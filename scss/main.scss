@@ -1,4 +1,5 @@
 @import 'reset';
+@import 'variables';
 
 html {
     box-sizing: border-box;
@@ -7,4 +8,25 @@ html {
 
 a {
     text-decoration: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 1rem;
+  width: 120px;
+}
+
+.head {
+  background-color: $brand-text;
+  color: $cothers;
+
+  .para {
+    color: $text-white;
+  }
 }
