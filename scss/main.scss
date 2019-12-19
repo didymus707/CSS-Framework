@@ -48,6 +48,7 @@ a {
   .col-#{$n} {
     flex: 0 0 percentage($n/$grid-cols);
     max-width: percentage($n/$grid-cols);
+    padding: 0 15px;
   }
 }
 
@@ -79,4 +80,25 @@ a {
 
 @each $modifier, $breakpoint in $screens {
   @include dynamicCols($modifier, $grid-cols, $breakpoint);
+}
+
+@each $property, $value in $mg-pd {
+  @each $size, $vals in $sizes{
+    .#{$property}-#{$size} {
+      #{$value}: $vals;
+    }
+    @each $direction, $val in $directions {
+      .#{$property}#{$direction}-#{$size} {
+        #{$value}-#{$val}: $vals;
+      }
+    }
+  }
+}
+
+.bn {
+  border: none;
+}
+
+.bt {
+  border-top: 1px solid #e6ecf0;
 }
