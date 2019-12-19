@@ -48,26 +48,35 @@ a {
   .col-#{$n} {
     flex: 0 0 percentage($n/$grid-cols);
     max-width: percentage($n/$grid-cols);
+  }
+}
 
+@for $n from 1 through $grid-cols {
+  .order-#{$n} {
+    order: $n;
   }
 }
 
 @mixin mq($breakpoint) {
   @media screen and (min-width: $breakpoint) {
     @content;
-  }
+  };
 };
 
 @mixin dynamicCols($modifier, $grid-cols, $breakpoint) {
   @include mq($breakpoint) {
     @for $n from 1 through $grid-cols {
+      .order-#{$modifier}-#{$n} {
+        order: $n;
+      }
       .col-#{$modifier}-#{$n} {
         flex: 0 0 percentage($n/$grid-cols);
+        max-width: percentage($n/$grid-cols);
       }
     }
   } 
 };
 
-@each $modifier , $breakpoint in $screens {
+@each $modifier, $breakpoint in $screens {
   @include dynamicCols($modifier, $grid-cols, $breakpoint);
 }
