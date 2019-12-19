@@ -20,13 +20,20 @@ a {
   border-radius: 0.5rem;
 }
 
-.head {
-  background-color: $brand-text;
-  color: $cothers;
+.text-white {
+  color: $text-white;
+}
 
-  .para {
-    color: $text-white;
-  }
+.text-dark {
+  color: $text-dark;
+}
+
+.brand-color {
+  color: $brand-color;
+}
+
+.other-color {
+  color: $cothers;
 }
 
 .container, .container-fluid{
@@ -42,6 +49,27 @@ a {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+}
+
+.bn {
+  border: none;
+}
+
+.bt {
+  border-top: 1px solid #e6ecf0;
+}
+
+@each $property, $value in $mg-pd {
+  @each $size, $vals in $sizes{
+    .#{$property}-#{$size} {
+      #{$value}: $vals;
+    }
+    @each $direction, $val in $directions {
+      .#{$property}#{$direction}-#{$size} {
+        #{$value}-#{$val}: $vals;
+      }
+    }
+  }
 }
 
 @for $n from 1 through $grid-cols {
@@ -80,25 +108,4 @@ a {
 
 @each $modifier, $breakpoint in $screens {
   @include dynamicCols($modifier, $grid-cols, $breakpoint);
-}
-
-@each $property, $value in $mg-pd {
-  @each $size, $vals in $sizes{
-    .#{$property}-#{$size} {
-      #{$value}: $vals;
-    }
-    @each $direction, $val in $directions {
-      .#{$property}#{$direction}-#{$size} {
-        #{$value}-#{$val}: $vals;
-      }
-    }
-  }
-}
-
-.bn {
-  border: none;
-}
-
-.bt {
-  border-top: 1px solid #e6ecf0;
 }
