@@ -1,5 +1,5 @@
 # CSS-Framework
- Build a simple grid-based framework.
+ Designing a simple grid-based framework.
 
 ## Table of Contents
 
