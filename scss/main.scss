@@ -17,9 +17,7 @@ a {
 }
 
 .btn {
-  padding: 10px;
-  border-radius: 1rem;
-  width: 120px;
+  border-radius: 0.5rem;
 }
 
 .head {
@@ -31,43 +29,45 @@ a {
   }
 }
 
-.container {
-  width: 100%;
-  margin: 0 10px;
-}
-
-.container-fluid {
-  width: 100%;
+.container, .container-fluid{
+  width: $pcent;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
-$screens: (
-  md: 720px,
-  lg: 1024px
-  );
+@for $n from 1 through $grid-cols {
+  .col-#{$n} {
+    flex: 0 0 percentage($n/$grid-cols);
+    max-width: percentage($n/$grid-cols);
 
-$size: (
-  auto: auto,
-  0: 0,
-  1: 0.2rem,
-  2: 0.5rem,
-  3: 1rem,
-  4: 2rem,
-  5: 4rem
-);
+  }
+}
 
-$margin-padding: (
-  m: margin,
-  p: padding
-);
+@mixin mq($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+};
 
-$direction: (
-  t: top,
-  r: right,
-  b: bottom,
-  l: left
-);
+@mixin dynamicCols($modifier, $grid-cols, $breakpoint) {
+  @include mq($breakpoint) {
+    @for $n from 1 through $grid-cols {
+      .col-#{$modifier}-#{$n} {
+        flex: 0 0 percentage($n/$grid-cols);
+      }
+    }
+  } 
+};
+
+@each $modifier , $breakpoint in $screens {
+  @include dynamicCols($modifier, $grid-cols, $breakpoint);
+}

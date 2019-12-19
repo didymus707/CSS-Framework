@@ -3,3 +3,50 @@ $brand-text: #3ba1f2;
 $text-white: #fff;
 $text-dark: #14171A;
 $cothers: #3695e0;
+
+$pcent: 100%;
+$grid-cols: 12;
+
+// screen sizes ........................................ //
+$screens: (
+  md: 720px,
+  lg: 1024px
+  );
+
+$sizes: (
+  auto: auto,
+  0: 0,
+  1: 0.2rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 2rem,
+  5: 3rem
+);
+
+$order: (
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+);
+
+// margin & padding ........................................ //
+$mg-pd: (
+  m: margin,
+  p: padding,
+);
+
+// direction ................................................ //
+$directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+
+$border: (
+    n: none,
+    1: 1px,
+)
