@@ -69,7 +69,7 @@ a {
 }
 
 .btn {
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
 }
 
 .text-white {
@@ -835,5 +835,4 @@ a {
     max-width: 100%;
   }
 }
-
 /*# sourceMappingURL=main.css.map */
