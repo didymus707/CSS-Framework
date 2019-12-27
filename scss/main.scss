@@ -51,12 +51,32 @@ a {
   margin-left: -15px;
 }
 
+.d-flex {
+  display: flex;
+}
+
 .bn {
   border: none;
 }
 
 .bt {
   border-top: 1px solid #e6ecf0;
+}
+
+@each $space-prop, $space-val in $spacing {
+  @each $jc-prop, $jc-val in $spacing-value {
+    .#{$space-prop}-#{$jc-prop} {
+      #{$space-val}: $jc-val;
+    }
+  }
+}
+
+@each $align-prop, $align-val in $align {
+  @each $ali-prop, $ali-val in $spacing-value {
+    .#{$align-prop}-#{$ali-prop} {
+      #{$align-val}: $ali-val;
+    }
+  }
 }
 
 @each $property, $value in $mg-pd {
@@ -109,3 +129,4 @@ a {
 @each $modifier, $breakpoint in $screens {
   @include dynamicCols($modifier, $grid-cols, $breakpoint);
 }
+
