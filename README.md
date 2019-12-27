@@ -39,7 +39,7 @@ Specs to the Project can be found [here](https://www.theodinproject.com/courses/
 
 To use this framework just paste the link below in the head of your index's html.
 ```sh
-https://raw.githack.com/didymus707/CSS-Framework/contents/css/main.css
+https://rawcdn.githack.com/didymus707/CSS-Framework/dc8260cf1c8e0b8988d765272d32ff4de5b67927/css/main.css
 ```
 
 
