@@ -51,10 +51,6 @@ a {
   margin-left: -15px;
 }
 
-.d-flex {
-  display: flex;
-}
-
 .bn {
   border: none;
 }
@@ -63,13 +59,21 @@ a {
   border-top: 1px solid #e6ecf0;
 }
 
+@each $app-var, $app-prop in $appearance {
+  @each $appce-prop, $appce-val in $appearance-value {
+    .#{$app-var}-#{$appce-prop} {
+      #{$app-prop}: $appce-val;
+    }
+  } 
+}
+
 @each $space-prop, $space-val in $spacing {
   @each $jc-prop, $jc-val in $spacing-value {
     .#{$space-prop}-#{$jc-prop} {
       #{$space-val}: $jc-val;
     }
   }
-}
+};
 
 @each $align-prop, $align-val in $align {
   @each $ali-prop, $ali-val in $spacing-value {
@@ -77,7 +81,7 @@ a {
       #{$align-val}: $ali-val;
     }
   }
-}
+};
 
 @each $property, $value in $mg-pd {
   @each $size, $vals in $sizes{
@@ -90,7 +94,7 @@ a {
       }
     }
   }
-}
+};
 
 @for $n from 1 through $grid-cols {
   .col-#{$n} {
@@ -98,13 +102,13 @@ a {
     max-width: percentage($n/$grid-cols);
     padding: 0 15px;
   }
-}
+};
 
 @for $n from 1 through $grid-cols {
   .order-#{$n} {
     order: $n;
   }
-}
+};
 
 @mixin mq($breakpoint) {
   @media screen and (min-width: $breakpoint) {
@@ -114,6 +118,13 @@ a {
 
 @mixin dynamicCols($modifier, $grid-cols, $breakpoint) {
   @include mq($breakpoint) {
+    @each $app-var, $app-prop in $appearance {
+      @each $appce-prop, $appce-val in $appearance-value {
+        .#{$app-var}-#{$modifier}-#{$appce-prop} {
+          #{$app-prop}: $appce-val;
+        }
+      } 
+    }
     @for $n from 1 through $grid-cols {
       .order-#{$modifier}-#{$n} {
         order: $n;
@@ -136,9 +147,8 @@ a {
       }
     }
   } 
-};
+}
 
 @each $modifier, $breakpoint in $screens {
   @include dynamicCols($modifier, $grid-cols, $breakpoint);
-}
-
+};
