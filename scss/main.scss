@@ -123,6 +123,18 @@ a {
         max-width: percentage($n/$grid-cols);
       }
     }
+    @each $property, $value in $mg-pd {
+      @each $size, $vals in $sizes{
+        .#{$property}-#{$modifier}-#{$size} {
+          #{$value}: $vals;
+        }
+        @each $direction, $val in $directions {
+          .#{$property}#{$direction}-#{$modifier}-#{$size} {
+            #{$value}-#{$val}: $vals;
+          }
+        }
+      }
+    }
   } 
 };
 
