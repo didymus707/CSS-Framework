@@ -78,7 +78,7 @@ a {
 @each $align-prop, $align-val in $align {
   @each $ali-prop, $ali-val in $spacing-value {
     .#{$align-prop}-#{$ali-prop} {
-      #{$align-val}: $ali-val;
+      #{$align-val}: $ali-val; 
     }
   }
 };
