@@ -145,6 +145,12 @@ a {
       justify-content: space-around;
 }
 
+.jc-spe {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 .align-cen {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -161,6 +167,12 @@ a {
   -webkit-box-align: space-around;
       -ms-flex-align: space-around;
           align-items: space-around;
+}
+
+.align-spe {
+  -webkit-box-align: space-evenly;
+      -ms-flex-align: space-evenly;
+          align-items: space-evenly;
 }
 
 .m-auto {
